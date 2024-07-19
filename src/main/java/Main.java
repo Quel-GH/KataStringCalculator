@@ -57,7 +57,7 @@ public class Main {
                 }
         }
         int dividerNumber = Integer.valueOf(afterFirstString);
-        if(dividerNumber > 10 || dividerNumber < 0)
+        if(dividerNumber > 10 || dividerNumber < 1)
             try {
                 throw new Exception();
             } catch (Exception e) {
@@ -82,7 +82,7 @@ public class Main {
                 }
         }
         int multiplyNumber = Integer.valueOf(afterFirstString);
-        if(multiplyNumber > 10 || multiplyNumber < 0)
+        if(multiplyNumber > 10 || multiplyNumber < 1)
             try {
                 throw new Exception();
             } catch (Exception e) {
