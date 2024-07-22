@@ -26,6 +26,16 @@ public class Main {
             } else {
 //               Добавление первой строки в StringBuilder
                 answer.append(input.substring(0,(input.indexOf("\"", 1)) ));
+//              Проверка на длинну строки - не более 10
+//              Добавляю к длинне +1, чтобы учесть отсутствующую " в конце answer
+                if(answer.length()+1 > 10){
+                  try {
+                     throw new Exception();
+                  } catch (Exception e) {
+                    throw new IllegalArgumentException(e);
+                    }
+                }
+
 //                Проверка на математические действия
                 String afterFirstString = input.substring((input.indexOf("\"", 1))+1).trim();
                 switch (afterFirstString.charAt(0)) {
@@ -119,12 +129,21 @@ public class Main {
                 }
             }
         }
+
         String s = String.valueOf(answer);
+//      Проверка на длинну строки - не более 10
+//      Добавляю к длинне +1, чтобы учесть отсутствующую " в начале входной строки
+        if(afterFirstString.length()+1 > 10){
+            try {
+                throw new Exception();
+            } catch (Exception e) {
+                throw new IllegalArgumentException(e);
+            }
+        }
         String secondWordWithOutQuotes = afterFirstString.substring(firstQuotes+1,afterFirstString.length()-1);
         if(s.contains(secondWordWithOutQuotes)){
             s = s.replace(secondWordWithOutQuotes,"");
             newAnswer = new StringBuilder(s);
-
         }
 
         return newAnswer.append("\"");
@@ -146,7 +165,17 @@ public class Main {
                 }
             }
         }
-        return answer.append(afterFirstString.substring(firstQuotes+1));
+        String stringAnswer = afterFirstString.substring(firstQuotes+1);
+//      Проверка на длинну строки - не более 10
+//      Добавляю к длинне +1, чтобы учесть отсутствующую " в начале stringAnswer
+        if(stringAnswer.length()+1 > 10){
+            try {
+                throw new Exception();
+            } catch (Exception e) {
+                throw new IllegalArgumentException(e);
+            }
+        }
+        return answer.append(stringAnswer);
     }
 
 
